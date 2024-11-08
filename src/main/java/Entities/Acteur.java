@@ -1,16 +1,22 @@
 package Entities;
 
+import java.util.List;
+
 public class Acteur {
     private String id;
     private String identité;
     private String url;
     double poids;
+    Naissance naissance;
+    List<Film> films;
 
-    public Acteur(String id, String identité, String url, double poids) {
+    public Acteur(String id, String identité, String url, double poids, Naissance naissance, List<Film> films) {
         this.id = id;
         this.identité = identité;
         this.url = url;
         this.poids = poids;
+        this.naissance = naissance;
+        this.films = films;
     }
 
     public String getId() {
@@ -43,5 +49,21 @@ public class Acteur {
 
     public void setPoids(double poids) {
         this.poids = poids;
+    }
+
+    public Naissance getNaissance() {
+        return naissance;
+    }
+
+    public void setNaissance(Naissance naissance) {
+        this.naissance = naissance;
+    }
+
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 }
