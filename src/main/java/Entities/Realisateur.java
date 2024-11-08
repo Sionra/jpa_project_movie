@@ -7,12 +7,7 @@ public class Realisateur {
     String identite, url;
     List<Film> films;
 
-    public Realisateur(int id, String identite, String url, List<Film> films) {
-        this.id = id;
-        this.identite = identite;
-        this.url = url;
-        this.films = films;
-    }
+    public Realisateur() {}
 
     public int getId() {
         return id;

@@ -6,10 +6,7 @@ public class Genre {
     String nom;
     List<Film> films;
 
-    public Genre(String nom, List<Film> films) {
-        this.nom = nom;
-        this.films = films;
-    }
+    public Genre() {}
 
     public String getNom() {
         return nom;

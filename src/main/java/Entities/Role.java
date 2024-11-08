@@ -7,11 +7,7 @@ public class Role {
     List<Acteur> acteurs;
     List<Role> roles;
 
-    public Role(String nom_personnage, List<Acteur> acteurs, List<Role> roles) {
-        this.nom_personnage = nom_personnage;
-        this.acteurs = acteurs;
-        this.roles = roles;
-    }
+    public Role() {}
 
     public String getNom_personnage() {
         return nom_personnage;

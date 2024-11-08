@@ -1,54 +1,43 @@
 package Entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Acteur {
     private String id;
-    private String identité;
+    private String identite;
     private String url;
-    double poids;
+    double height;
+
     Naissance naissance;
+
     List<Film> films;
 
-    public Acteur(String id, String identité, String url, double poids, Naissance naissance, List<Film> films) {
-        this.id = id;
-        this.identité = identité;
-        this.url = url;
-        this.poids = poids;
-        this.naissance = naissance;
-        this.films = films;
-    }
+    public Acteur() {}
 
     public String getId() {
         return id;
     }
 
-    public String getIdentité() {
-        return identité;
+    public String getIdentite() {
+        return identite;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public double getPoids() {
-        return poids;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setIdentité(String identité) {
-        this.identité = identité;
+    public void setIdentite(String identité) {
+        this.identite = identité;
     }
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public void setPoids(double poids) {
-        this.poids = poids;
     }
 
     public Naissance getNaissance() {
@@ -65,5 +54,13 @@ public class Acteur {
 
     public void setFilms(List<Film> films) {
         this.films = films;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
 }

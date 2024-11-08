@@ -5,19 +5,12 @@ import java.util.List;
 public class Lieu {
     int id;
     String ville;
-    String stat;
+    String state;
     Pays pays;
     List<Naissance> naissance;
     List<Film> film;
 
-    public Lieu(int id, String ville, String stat, Pays pays, List<Naissance> naissance, List<Film> film) {
-        this.id = id;
-        this.ville = ville;
-        this.stat = stat;
-        this.pays = pays;
-        this.naissance = naissance;
-        this.film = film;
-    }
+    public Lieu() {}
 
     public int getId() {
         return id;
@@ -35,12 +28,12 @@ public class Lieu {
         this.ville = ville;
     }
 
-    public String getStat() {
-        return stat;
+    public String getState() {
+        return state;
     }
 
-    public void setStat(String stat) {
-        this.stat = stat;
+    public void setState(String stat) {
+        this.state = state;
     }
 
     public Pays getPays() {

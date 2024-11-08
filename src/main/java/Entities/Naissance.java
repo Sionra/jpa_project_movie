@@ -1,20 +1,27 @@
 package Entities;
 
+import Deserializer.LieuDeserializer;
+import Deserializer.LocalDateDeserializer;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.LocalDate;
 import java.util.List;
 
 public class Naissance {
     int id;
+
+    @JsonProperty("dateNaissance")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     LocalDate dateNaissance;
-    List<Lieu> lieux;
+
+    @JsonProperty("lieuNaissance")
+    @JsonDeserialize(using = LieuDeserializer.class)
+    Lieu lieu;
+
     List<Acteur> acteurs;
 
-    public Naissance(int id, LocalDate dateNaissance, List<Lieu> lieux, List<Acteur> acteurs) {
-        this.id = id;
-        this.dateNaissance = dateNaissance;
-        this.lieux = lieux;
-        this.acteurs = acteurs;
-    }
+    public Naissance() {}
 
     public int getId() {
         return id;
@@ -32,12 +39,12 @@ public class Naissance {
         this.dateNaissance = dateNaissance;
     }
 
-    public List<Lieu> getLieux() {
-        return lieux;
+    public Lieu getLieu() {
+        return lieu;
     }
 
-    public void setLieux(List<Lieu> lieux) {
-        this.lieux = lieux;
+    public void setLieu(Lieu lieu) {
+        this.lieu = lieu;
     }
 
     public List<Acteur> getActeurs() {

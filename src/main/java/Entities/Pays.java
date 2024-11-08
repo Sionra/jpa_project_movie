@@ -1,3 +1,5 @@
+// PAYS : PARSED
+
 package Entities;
 
 import java.util.List;
@@ -9,13 +11,7 @@ public class Pays {
     List<Film> films;
     List<Lieu> lieux;
 
-    public Pays(int id, String nom, String url, List<Film> films, List<Lieu> lieux) {
-        this.id = id;
-        this.nom = nom;
-        this.url = url;
-        this.films = films;
-        this.lieux = lieux;
-    }
+    public Pays() {}
 
     public int getId() {
         return id;

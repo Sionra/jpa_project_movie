@@ -10,18 +10,7 @@ public class Film {
     List<Acteur> acteurs;
     Pays pays;
 
-    public Film(String id, String nom, String url, String plot, String langue, List<Realisateur> realisateurs, List<Genre> genres, List<Lieu> lieux, List<Acteur> acteurs, Pays pays) {
-        this.id = id;
-        this.nom = nom;
-        this.url = url;
-        this.plot = plot;
-        this.langue = langue;
-        this.realisateurs = realisateurs;
-        this.lieux = lieux;
-        this.acteurs = acteurs;
-        this.genres = genres;
-        this.pays = pays;
-    }
+    public Film() {}
 
     public String getId() {
         return id;
