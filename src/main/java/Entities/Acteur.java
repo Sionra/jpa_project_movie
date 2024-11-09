@@ -2,18 +2,21 @@
 
 package Entities;
 
+import Deserializer.Classes.ActeurDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
 
+@JsonDeserialize(using = ActeurDeserializer.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Acteur {
     private String id;
     private String identite;
     private String url;
     double height;
-    List<Role> role;
+    List<Role> roles;
 
     Naissance naissance;
 
@@ -69,11 +72,11 @@ public class Acteur {
         this.height = height;
     }
 
-    public List<Role> getRole() {
-        return role;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(List<Role> role) {
-        this.role = role;
+    public void setRole(List<Role> roles) {
+        this.roles = roles;
     }
 }

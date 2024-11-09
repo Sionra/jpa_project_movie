@@ -7,14 +7,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
+import java.util.UUID;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "genres")
 public class Genre {
     @JsonProperty("genres")
     List<String> noms;
+
     List<Film> films;
 
-    public Genre() {}
+    public Genre() {
+    }
 
     public List<String> getNoms() {
         return noms;

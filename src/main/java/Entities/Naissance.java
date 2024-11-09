@@ -2,15 +2,14 @@
 
 package Entities;
 
-import Deserializer.LieuDeserializer;
-import Deserializer.LocalDateDeserializer;
+import Deserializer.Attributs.LieuAttributsDeserializer;
+import Deserializer.Attributs.LocalDateDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Naissance {
@@ -21,7 +20,7 @@ public class Naissance {
     LocalDate dateNaissance;
 
     @JsonProperty("lieuNaissance")
-    @JsonDeserialize(using = LieuDeserializer.class)
+    @JsonDeserialize(using = LieuAttributsDeserializer.class)
     Lieu lieu;
 
     public Naissance() {}

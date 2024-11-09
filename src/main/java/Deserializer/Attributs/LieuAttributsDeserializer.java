@@ -1,4 +1,4 @@
-package Deserializer;
+package Deserializer.Attributs;
 import Entities.Lieu;
 
 import Entities.Pays;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import java.io.IOException;
 
-public class LieuDeserializer extends JsonDeserializer<Lieu> {
+public class LieuAttributsDeserializer extends JsonDeserializer<Lieu> {
     @Override
     public Lieu deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         String text = p.getText();
