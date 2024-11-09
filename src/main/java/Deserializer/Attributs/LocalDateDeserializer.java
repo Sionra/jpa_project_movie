@@ -31,9 +31,9 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
             try {
                 return LocalDate.parse(date, formatter);
             } catch (DateTimeParseException e) {
-                // Continue d'essayer avec les autres formats
+                //
             }
         }
-        throw new IOException("Date format not supported: " + date);
+        throw new IOException("Ce format de date n'est pas pris en charge : " + date);
     }
 }

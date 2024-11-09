@@ -3,8 +3,11 @@ package Tests;
 import Deserializer.Classes.ActeurDeserializer;
 import Entities.Acteur;
 import Entities.CastingPrincipal;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+
+import java.util.List;
 
 public class JsonParserCastingPrincipal {
     public static void main(String[] args) throws Exception {
@@ -32,16 +35,18 @@ public class JsonParserCastingPrincipal {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-//        SimpleModule module = new SimpleModule();
-//        module.addDeserializer(Acteur.class, new ActeurDeserializer());
-//        objectMapper.registerModule(module);
-
         CastingPrincipal castingPrincipal = objectMapper.readValue(jsonString, CastingPrincipal.class);
 
+        List<Acteur> casting = castingPrincipal.getActeurs();
+
         System.out.println("CASTING PRINCIPAL");
-        for(Acteur acteur : castingPrincipal.getActeurs()){
+        for(Acteur acteur : casting){
             System.out.println("Nom de l'acteur : " + acteur.getIdentite());
         }
+
+        // Vérifie que c'est la même instance à l'index 0 et l'index 1
+        // plutôt qu'une instance à l'index 0 et son doublon à l'index 1
+        System.out.println(casting.get(0) == casting.get(1));
 
     }
 }
