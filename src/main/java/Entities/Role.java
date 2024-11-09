@@ -1,11 +1,14 @@
 package Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Role {
     String nom_personnage;
     List<Acteur> acteurs;
-    List<Role> roles;
 
     public Role() {}
 
@@ -23,13 +26,5 @@ public class Role {
 
     public void setActeurs(List<Acteur> acteurs) {
         this.acteurs = acteurs;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
     }
 }

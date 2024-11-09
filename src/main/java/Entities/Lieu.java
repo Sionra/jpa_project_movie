@@ -1,9 +1,16 @@
+// LIEU : PARSED
+
 package Entities;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Lieu {
     int id;
+    String quartier;
     String ville;
     String state;
     Pays pays;
@@ -20,6 +27,14 @@ public class Lieu {
         this.id = id;
     }
 
+    public String getQuartier() {
+        return quartier;
+    }
+
+    public void setQuartier(String quartier) {
+        this.quartier = quartier;
+    }
+
     public String getVille() {
         return ville;
     }
@@ -32,7 +47,7 @@ public class Lieu {
         return state;
     }
 
-    public void setState(String stat) {
+    public void setState(String state) {
         this.state = state;
     }
 

@@ -1,19 +1,27 @@
+// GENRE : PARSED (SAUF FILMS)
+
 package Entities;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Genre {
-    String nom;
+    @JsonProperty("genres")
+    List<String> noms;
     List<Film> films;
 
     public Genre() {}
 
-    public String getNom() {
-        return nom;
+    public List<String> getNoms() {
+        return noms;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNoms(List<String> noms) {
+        this.noms = noms;
     }
 
     public List<Film> getFilms() {

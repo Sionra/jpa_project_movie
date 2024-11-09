@@ -1,14 +1,19 @@
+// ACTEUR : PARSED (SAUF FILMS)
+
 package Entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Acteur {
     private String id;
     private String identite;
     private String url;
     double height;
+    List<Role> role;
 
     Naissance naissance;
 
@@ -62,5 +67,13 @@ public class Acteur {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public List<Role> getRole() {
+        return role;
+    }
+
+    public void setRole(List<Role> role) {
+        this.role = role;
     }
 }

@@ -24,6 +24,6 @@ public class JsonParserActeur {
 
         System.out.println("Nom de l'acteur : " + actor.getIdentite());
         System.out.println("Date de naissance : " + actor.getNaissance().getDateNaissance());
-        System.out.println("Lieu de naissance : " + actor.getNaissance().getLieu());
+        System.out.println("Ville de naissance : " + actor.getNaissance().getLieu().getVille());
     }
 }

@@ -1,9 +1,13 @@
-// PAYS : PARSED
+// PAYS : PARSED (SAUF FILMS ET LIEUX)
 
 package Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Pays {
     int id;
     String nom;

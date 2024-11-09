@@ -1,7 +1,12 @@
 package Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Film {
     String id, nom, url, plot, langue;
     List<Realisateur> realisateurs;
@@ -9,6 +14,7 @@ public class Film {
     List<Lieu> lieux;
     List<Acteur> acteurs;
     Pays pays;
+    List<Role> role;
 
     public Film() {}
 
@@ -90,5 +96,13 @@ public class Film {
 
     public void setPays(Pays pays) {
         this.pays = pays;
+    }
+
+    public List<Role> getRole() {
+        return role;
+    }
+
+    public void setRole(List<Role> role) {
+        this.role = role;
     }
 }

@@ -1,13 +1,18 @@
+// NAISSANCE : PARSED
+
 package Entities;
 
 import Deserializer.LieuDeserializer;
 import Deserializer.LocalDateDeserializer;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Naissance {
     int id;
 
@@ -18,8 +23,6 @@ public class Naissance {
     @JsonProperty("lieuNaissance")
     @JsonDeserialize(using = LieuDeserializer.class)
     Lieu lieu;
-
-    List<Acteur> acteurs;
 
     public Naissance() {}
 
@@ -45,13 +48,5 @@ public class Naissance {
 
     public void setLieu(Lieu lieu) {
         this.lieu = lieu;
-    }
-
-    public List<Acteur> getActeurs() {
-        return acteurs;
-    }
-
-    public void setActeurs(List<Acteur> acteurs) {
-        this.acteurs = acteurs;
     }
 }
