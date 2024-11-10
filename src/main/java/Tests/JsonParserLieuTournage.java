@@ -12,10 +12,7 @@ public class JsonParserLieuTournage {
         LieuTournage lieu = mapper.readValue(jsonString, LieuTournage.class);
 
         System.out.println("Ville : " + lieu.getVille());
-        System.out.println("EtatDept : " + lieu.getEtatDept());
+        System.out.println("EtatDept : " + lieu.getState());
         System.out.println("Pays : " + lieu.getPays());
-
-
-
     }
 }

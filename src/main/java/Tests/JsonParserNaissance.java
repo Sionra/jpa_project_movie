@@ -1,3 +1,5 @@
+// TEST AUSSI LIEU NAISSANCE
+
 package Tests;
 
 import Entities.Naissance;
@@ -16,7 +18,7 @@ public class JsonParserNaissance {
         System.out.println("Date de naissance : " + naissance1.getDateNaissance());
         System.out.println("Ville de naissance : " + naissance1.getLieu().getVille());
         System.out.println("Région/Etat de naissance : " + naissance1.getLieu().getState());
-        System.out.println("Pays de naissance : " + naissance1.getLieu().getPays().getNom());
+        System.out.println("Pays de naissance : " + naissance1.getLieu().getPays());
 
         String jsonString2 = "{\"dateNaissance\": \"1964-10-25\", \"lieuNaissance\": \"Bronx, New York City, New York, USA\"}";
 
@@ -27,6 +29,6 @@ public class JsonParserNaissance {
         System.out.println("Quartier de naissance : " + naissance2.getLieu().getQuartier());
         System.out.println("Ville de naissance : " + naissance2.getLieu().getVille());
         System.out.println("Région/Etat de naissance : " + naissance2.getLieu().getState());
-        System.out.println("Pays de naissance : " + naissance2.getLieu().getPays().getNom());
+        System.out.println("Pays de naissance : " + naissance2.getLieu().getPays());
     }
 }

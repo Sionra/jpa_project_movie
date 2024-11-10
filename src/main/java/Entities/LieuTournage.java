@@ -3,44 +3,22 @@ package Entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class LieuTournage {
-    private int id;
-    private String ville;
-    private String etatDept;
-    private String pays;
+import java.util.List;
 
-    public LieuTournage() {}
+public class LieuTournage extends Lieu{
+    List<Film> films;
 
-    public int getId() {
-        return id;
+    public LieuTournage() {
+        super();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public List<Film> getFilms() {
+        return films;
     }
 
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getEtatDept() {
-        return etatDept;
-    }
-
-    public void setEtatDept(String etatDept) {
-        this.etatDept = etatDept;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
+    @Override
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 }

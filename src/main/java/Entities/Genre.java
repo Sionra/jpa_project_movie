@@ -2,29 +2,32 @@
 
 package Entities;
 
+import Deserializer.Classes.GenreDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
 import java.util.UUID;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "genres")
+@JsonDeserialize(using = GenreDeserializer.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Genre {
-    @JsonProperty("genres")
-    List<String> noms;
+    @JsonProperty("id")
+    String nom;
 
     List<Film> films;
 
     public Genre() {
     }
 
-    public List<String> getNoms() {
-        return noms;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNoms(List<String> noms) {
-        this.noms = noms;
+    public void setNom(String noms) {
+        this.nom = nom;
     }
 
     public List<Film> getFilms() {

@@ -12,7 +12,7 @@ public class JsonParserPays {
 
         Pays pays = objectMapper.readValue(jsonString, Pays.class);
 
-        System.out.println("ID du pays : " + pays.getId());
+        System.out.println("ID du pays : " + pays.getNom());
         System.out.println("Nom du pays : " + pays.getNom());
         System.out.println("URL : " + pays.getUrl());
     }

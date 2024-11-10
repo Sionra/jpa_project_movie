@@ -2,7 +2,7 @@
 
 package Entities;
 
-import Deserializer.Attributs.LieuAttributsDeserializer;
+import Deserializer.Attributs.LieuNaissanceDeserializer;
 import Deserializer.Attributs.LocalDateDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,8 +20,8 @@ public class Naissance {
     LocalDate dateNaissance;
 
     @JsonProperty("lieuNaissance")
-    @JsonDeserialize(using = LieuAttributsDeserializer.class)
-    Lieu lieu;
+    @JsonDeserialize(using = LieuNaissanceDeserializer.class)
+    LieuNaissance lieu;
 
     public Naissance() {}
 
@@ -41,11 +41,11 @@ public class Naissance {
         this.dateNaissance = dateNaissance;
     }
 
-    public Lieu getLieu() {
+    public LieuNaissance getLieu() {
         return lieu;
     }
 
-    public void setLieu(Lieu lieu) {
+    public void setLieu(LieuNaissance lieu) {
         this.lieu = lieu;
     }
 }

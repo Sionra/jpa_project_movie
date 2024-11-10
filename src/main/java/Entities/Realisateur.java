@@ -1,3 +1,5 @@
+// PARSED SAUF LIST FILMS
+
 package Entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

@@ -3,21 +3,27 @@
 package Entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
+import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Lieu {
     int id;
     String quartier;
     String ville;
-    String state;
-    Pays pays;
-    List<Naissance> naissance;
-    List<Film> film;
 
-    public Lieu() {}
+    @JsonProperty("etatDept")
+    String state;
+
+    String pays;
+    List<Film> films;
+
+    public Lieu() {
+        UUID uuid = UUID.randomUUID();
+    }
 
     public int getId() {
         return id;
@@ -51,27 +57,19 @@ public class Lieu {
         this.state = state;
     }
 
-    public Pays getPays() {
+    public String getPays() {
         return pays;
     }
 
-    public void setPays(Pays pays) {
+    public void setPays(String pays) {
         this.pays = pays;
     }
 
-    public List<Naissance> getNaissance() {
-        return naissance;
+    public List<Film> getFilms() {
+        return films;
     }
 
-    public void setNaissance(List<Naissance> naissance) {
-        this.naissance = naissance;
-    }
-
-    public List<Film> getFilm() {
-        return film;
-    }
-
-    public void setFilm(List<Film> film) {
-        this.film = film;
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 }

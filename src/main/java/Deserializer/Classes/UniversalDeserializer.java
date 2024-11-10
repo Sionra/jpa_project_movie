@@ -10,7 +10,7 @@ import java.util.Map;
 public class UniversalDeserializer<T> extends JsonDeserializer<T> {
 
     private final Class<T> clazz;
-    // seenIdsMAp : <classe, <id : objet> >
+    //  <classe, <id : objet> > seenIdsMAp
     private static final Map<Class<?>, Map<String, Object>> seenIdsMap = new HashMap<>();
 
     public UniversalDeserializer(Class<T> clazz) {  // constructeur
@@ -24,6 +24,9 @@ public class UniversalDeserializer<T> extends JsonDeserializer<T> {
         JsonNode node = p.getCodec().readTree(p);
 
         JsonNode idNode = node.get("id");
+//        if (idNode == null) {
+//            idNode = node.get("genres"); // Genre Id
+//        }
 
         T obj;  // déclaration
         String id = idNode.asText();

@@ -3,27 +3,20 @@
 package Entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nom")
 public class Pays {
-    int id;
     String nom;
+
     String url;
     List<Film> films;
     List<Lieu> lieux;
 
     public Pays() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;
