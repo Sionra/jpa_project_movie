@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.UUID;
 
 @JsonDeserialize(using = GenreDeserializer.class)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "genres")
 public class Genre {
-    @JsonProperty("id")
+    @JsonProperty("genres")
     String nom;
 
     List<Film> films;

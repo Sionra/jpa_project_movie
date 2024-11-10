@@ -1,26 +1,24 @@
-// PARSED SAUF LIST FILMS
+// PARSED
+// LISTE FILMS A FIX
 
 package Entities;
 
+import Deserializer.Classes.RealisateurDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
+import java.util.UUID;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonDeserialize(using = RealisateurDeserializer.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "identite")
 public class Realisateur {
-    int id;
-    String identite, url;
+    String identite;
+    String url;
     List<Film> films;
 
-    public Realisateur() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Realisateur() {
     }
 
     public String getIdentite() {

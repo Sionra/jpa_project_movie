@@ -1,3 +1,6 @@
+// PARSED
+// LISTE ACTEURS A FIX
+
 package Entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -10,20 +13,21 @@ import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class CastingPrincipal {
-    String id;
+    private static int idCounter = 0;
+    int id;
 
     @JsonProperty("castingPrincipal")
     List<Acteur> acteurs;
 
     public CastingPrincipal(){
-        this.id = UUID.randomUUID().toString();
+        this.id = ++idCounter;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

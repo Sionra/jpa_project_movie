@@ -30,5 +30,7 @@ public class JsonParserNaissance {
         System.out.println("Ville de naissance : " + naissance2.getLieu().getVille());
         System.out.println("Région/Etat de naissance : " + naissance2.getLieu().getState());
         System.out.println("Pays de naissance : " + naissance2.getLieu().getPays());
+
+        System.out.println("\nAbsence de doublons : " + (naissance1 != naissance2));
     }
 }

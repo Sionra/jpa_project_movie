@@ -1,17 +1,21 @@
-// PAYS : PARSED (SAUF FILMS ET LIEUX)
+// PAYS : PARSED
+// LISTES A FIX
 
 package Entities;
 
+import Deserializer.Classes.GenreDeserializer;
+import Deserializer.Classes.PaysDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
 
+@JsonDeserialize(using = PaysDeserializer.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "nom")
 public class Pays {
     String nom;
-
     String url;
     List<Film> films;
     List<Lieu> lieux;

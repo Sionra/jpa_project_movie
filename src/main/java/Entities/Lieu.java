@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Lieu {
+    private static int idCounter = 0;
     int id;
     String quartier;
     String ville;
@@ -22,7 +23,7 @@ public class Lieu {
     List<Film> films;
 
     public Lieu() {
-        UUID uuid = UUID.randomUUID();
+        this.id = ++idCounter;
     }
 
     public int getId() {

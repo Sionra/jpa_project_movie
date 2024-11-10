@@ -24,9 +24,15 @@ public class UniversalDeserializer<T> extends JsonDeserializer<T> {
         JsonNode node = p.getCodec().readTree(p);
 
         JsonNode idNode = node.get("id");
-//        if (idNode == null) {
-//            idNode = node.get("genres"); // Genre Id
-//        }
+        if (idNode == null) {
+            idNode = node.get("identite"); // Realisateur Id
+        }
+        if (idNode == null) {
+            idNode = node.get("genres"); // Genres Id
+        }
+        if (idNode == null) {
+            idNode = node.get("nom"); // Pays Id
+        }
 
         T obj;  // déclaration
         String id = idNode.asText();

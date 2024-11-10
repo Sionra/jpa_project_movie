@@ -10,9 +10,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Naissance {
+    private static int idCounter = 0;
     int id;
 
     @JsonProperty("dateNaissance")
@@ -23,7 +25,9 @@ public class Naissance {
     @JsonDeserialize(using = LieuNaissanceDeserializer.class)
     LieuNaissance lieu;
 
-    public Naissance() {}
+    public Naissance() {
+        this.id = ++idCounter;
+    }
 
     public int getId() {
         return id;

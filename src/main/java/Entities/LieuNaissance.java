@@ -1,3 +1,6 @@
+// PARSED
+// LIST NAISSANCES A FIX
+
 package Entities;
 
 import Deserializer.Attributs.LieuNaissanceDeserializer;
