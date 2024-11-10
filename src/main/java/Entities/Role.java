@@ -1,6 +1,8 @@
 package Entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
@@ -8,19 +10,27 @@ import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Role {
-    String id;
+    private static int idCounter = 0;
+    Integer id;
+
+    @JsonProperty("characterName")
     String nom_personnage;
-    List<Acteur> acteurs;
+
+    @JsonProperty("acteur")
+    Acteur acteur;
+
+    @JsonProperty("film")
+    String filmId;
 
     public Role() {
-        this.id = UUID.randomUUID().toString();
+        this.id = ++idCounter;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -32,11 +42,27 @@ public class Role {
         this.nom_personnage = nom_personnage;
     }
 
-    public List<Acteur> getActeurs() {
-        return acteurs;
+    public Acteur getActeur() {
+        return acteur;
     }
 
-    public void setActeurs(List<Acteur> acteurs) {
-        this.acteurs = acteurs;
+    public void setActeur(Acteur acteur) {
+        this.acteur = acteur;
+    }
+
+    public static int getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(int idCounter) {
+        Role.idCounter = idCounter;
+    }
+
+    public String getFilmId() {
+        return filmId;
+    }
+
+    public void setFilmId(String filmId) {
+        this.filmId = filmId;
     }
 }

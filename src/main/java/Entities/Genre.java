@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
-import java.util.UUID;
 
 @JsonDeserialize(using = GenreDeserializer.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "genres")
@@ -19,7 +18,8 @@ public class Genre {
 
     List<Film> films;
 
-    public Genre() {
+    public Genre(String nom) {
+        this.nom = nom;
     }
 
     public String getNom() {

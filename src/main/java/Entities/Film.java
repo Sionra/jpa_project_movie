@@ -1,20 +1,30 @@
 package Entities;
 
+import Deserializer.Attributs.ListGenresDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Film {
     String id, nom, url, plot, langue;
+    int anneeSortie;
     List<Realisateur> realisateurs;
+
+    @JsonDeserialize(using = ListGenresDeserializer.class)
     List<Genre> genres;
-    List<Lieu> lieux;
+
+    @JsonProperty("castingPrincipal")
     List<Acteur> acteurs;
+
+    @JsonProperty("lieuTournage")
+    Lieu lieu;
+
     Pays pays;
-    List<Role> role;
+    List<Role> roles;
 
     public Film() {}
 
@@ -74,12 +84,12 @@ public class Film {
         this.genres = genres;
     }
 
-    public List<Lieu> getLieux() {
-        return lieux;
+    public Lieu getLieu() {
+        return lieu;
     }
 
-    public void setLieux(List<Lieu> lieux) {
-        this.lieux = lieux;
+    public void setLieu(Lieu lieu) {
+        this.lieu = lieu;
     }
 
     public List<Acteur> getActeurs() {
@@ -98,11 +108,19 @@ public class Film {
         this.pays = pays;
     }
 
-    public List<Role> getRole() {
-        return role;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(List<Role> role) {
-        this.role = role;
+    public void setRole(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public int getAnneeSortie() {
+        return anneeSortie;
+    }
+
+    public void setAnneeSortie(int anneeSortie) {
+        this.anneeSortie = anneeSortie;
     }
 }
