@@ -2,6 +2,7 @@ package Tests;
 
 import Entities.Film;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParserFilm {
@@ -40,8 +41,8 @@ public class JsonParserFilm {
       "id": "nm0695435",
       "identite": "Chris Pratt",
       "naissance": {
-        "dateNaissance": "1979-6-21",
-        "lieuNaissance": "Virginia, Minnesota, USA"
+        "dateNaissance": "",
+        "lieuNaissance": ""
       },
       "url": "/name/nm0695435/?ref_=tt_ov_st",
       "height": null,
@@ -85,7 +86,9 @@ public class JsonParserFilm {
 }
 """;
 
+
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
 
         Film film1 = objectMapper.readValue(jsonString, Film.class);
 

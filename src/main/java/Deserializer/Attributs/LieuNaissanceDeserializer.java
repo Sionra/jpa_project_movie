@@ -14,9 +14,8 @@ public class LieuNaissanceDeserializer extends JsonDeserializer<LieuNaissance> {
     public LieuNaissance deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         String text = p.getText();
 
-        // Vérification que la chaîne de texte n'est pas vide ou nulle
-        if (text == null || text.isEmpty()) {
-            throw new IOException("La chaîne de texte pour LieuNaissance est vide ou nulle");
+        if (text == null || text.trim().isEmpty()) {
+            return null;
         }
 
         String[] parts = text.split(",\\s*");

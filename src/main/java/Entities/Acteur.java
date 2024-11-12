@@ -4,6 +4,7 @@ package Entities;
 
 import Deserializer.Classes.ActeurDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -20,6 +21,7 @@ public class Acteur {
     double height;
     List<Role> roles;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     Naissance naissance;
 
     List<Film> films;
