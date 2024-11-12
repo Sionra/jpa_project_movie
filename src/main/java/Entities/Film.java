@@ -11,7 +11,7 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Film {
     String id, nom, url, plot, langue;
-    int anneeSortie;
+    String anneeSortie;
     List<Realisateur> realisateurs;
 
     @JsonDeserialize(using = ListGenresDeserializer.class)
@@ -116,11 +116,11 @@ public class Film {
         this.roles = roles;
     }
 
-    public int getAnneeSortie() {
+    public String getAnneeSortie() {
         return anneeSortie;
     }
 
-    public void setAnneeSortie(int anneeSortie) {
+    public void setAnneeSortie(String anneeSortie) {
         this.anneeSortie = anneeSortie;
     }
 }
