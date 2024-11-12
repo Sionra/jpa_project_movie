@@ -13,6 +13,7 @@ public class Naissance implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private int id;
     @Column(name="DATE_NAISSANCE")
     private LocalDate dateNaissance;

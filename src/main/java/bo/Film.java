@@ -3,6 +3,7 @@ package bo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 public class Film implements Serializable {
 
     @Id
+    @Column(name="ID")
     private String id;
     @Column(name="NOM")
     private String nom;
@@ -20,6 +22,8 @@ public class Film implements Serializable {
     private String plot;
     @Column(name="LANGUE")
     private String langue;
+    @Column(name="ANNEE_SORTIE")
+    private String anneSortie;
     @ManyToMany
     @JoinTable(name="film_lieu",
             joinColumns = @JoinColumn(name="ID_FILM"),
@@ -51,9 +55,24 @@ public class Film implements Serializable {
     @JoinColumn(name="PAYS_ID")
     private Pays pays;
 
-
+    {
+        lieux = new HashSet<Lieu>();
+        genres = new HashSet<Genre>();
+        reals = new HashSet<Realisateur>();
+        acteurs = new HashSet<Acteur>();
+        roles = new HashSet<Role>();
+    }
 
     public Film (){}
+
+    public Film(String id, String nom, String url, String plot, String langue, String anneSortie) {
+        this.id = id;
+        this.nom = nom;
+        this.url = url;
+        this.plot = plot;
+        this.langue = langue;
+        this.anneSortie = anneSortie;
+    }
 
     public Film(String id, String nom, String url, String plot, String langue, Set<Lieu> lieux, Set<Genre> genres, Set<Realisateur> reals, Set<Acteur> acteurs, Set<Role> roles, Pays pays) {
         this.id = id;

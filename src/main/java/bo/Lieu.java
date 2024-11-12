@@ -3,6 +3,7 @@ package bo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 public class Lieu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private int id;
     @Column(name="VILLE")
     private String ville;
@@ -24,7 +26,10 @@ public class Lieu implements Serializable {
     @OneToMany(mappedBy="lieu")
     private Set<Naissance> naissances;
 
-
+    {
+        films = new HashSet<Film>();
+        naissances = new HashSet<Naissance>();
+    }
 
     public Lieu(){}
 

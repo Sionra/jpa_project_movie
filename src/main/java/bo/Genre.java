@@ -3,6 +3,7 @@ package bo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,11 +12,17 @@ import java.util.Set;
 public class Genre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private int id;
     @Column(name="NOM")
     private String nom;
     @ManyToMany(mappedBy="genres")
     private Set<Film>films;
+
+    {
+        films = new HashSet<Film>();
+    }
+
 
     public Genre(){}
 

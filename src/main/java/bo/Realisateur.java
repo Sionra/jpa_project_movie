@@ -3,6 +3,7 @@ package bo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 public class Realisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private int id;
     @Column(name="IDENTITE")
     private String identite;
@@ -18,6 +20,11 @@ public class Realisateur implements Serializable {
     private String url;
     @ManyToMany(mappedBy="reals")
     private Set<Film> films;
+
+    {
+        films = new HashSet<Film>();
+    }
+
 
     public Realisateur (){}
 

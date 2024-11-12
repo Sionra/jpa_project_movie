@@ -3,6 +3,7 @@ package bo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @Table(name="acteur")
 public class Acteur implements Serializable {
     @Id
+    @Column(name="ID")
     private String id;
     @Column(name="IDENTITE")
     private String identite;
@@ -20,10 +22,15 @@ public class Acteur implements Serializable {
     @ManyToOne
     @JoinColumn(name="NAISSANCE_ID")
     private Naissance naissance;
-    @ManyToMany(mappedBy = "acteurs")
+    @ManyToMany(mappedBy = "acteurs",cascade = CascadeType.ALL)
     private Set<Film> films;
-    @OneToMany(mappedBy = "acteur")
+    @OneToMany(mappedBy = "acteur",cascade = CascadeType.ALL)
     private Set<Role> roles;
+
+    {
+        films = new HashSet<Film>();
+        roles = new HashSet<Role>();
+    }
 
 
     public Acteur (){}
@@ -85,6 +92,23 @@ public class Acteur implements Serializable {
      */
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    /**
+     * Getter for films
+     * return films
+     */
+    public Set<Film> getFilms() {
+        return films;
+    }
+
+    /**
+     * Setter for films
+     *
+     * @param films to set
+     */
+    public void setFilms(Set<Film> films) {
+        this.films = films;
     }
 
     @Override

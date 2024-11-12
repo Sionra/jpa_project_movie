@@ -12,6 +12,7 @@ import java.util.Set;
 public class Pays implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private int id;
     @Column(name="NOM")
     private String nom;
@@ -21,6 +22,11 @@ public class Pays implements Serializable {
     private Set<Film> films;
     @OneToMany(mappedBy="pays")
     private Set<Lieu> lieux;
+
+    {
+        films = new HashSet<Film>();
+        lieux = new HashSet<Lieu>();
+    }
 
     public Pays(){
     }
