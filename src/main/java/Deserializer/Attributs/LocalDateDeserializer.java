@@ -32,6 +32,12 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
             return null;
         }
 
+        // Gestion du format "yyyy-0-0"
+        if (date.matches("\\d{4}-0-0")) {
+            int year = Integer.parseInt(date.substring(0, 4));
+            return LocalDate.of(year, 1, 1); // Retourne le 1er janvier de l'année indiquée
+        }
+
         for (DateTimeFormatter formatter : FORMATTERS) {
             try {
                 return LocalDate.parse(date, formatter);
