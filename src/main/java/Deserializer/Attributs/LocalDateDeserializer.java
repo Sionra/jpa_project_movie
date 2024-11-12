@@ -37,6 +37,19 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
             int year = Integer.parseInt(date.substring(0, 4));
             return LocalDate.of(year, 1, 1); // Retourne le 1er janvier de l'année indiquée
         }
+        // Gestion du format "yyyy-m-0" ou "yyyy-mm-0"
+        else if (date.matches("^\\d{4}-\\d{1,2}-0$")) {
+            int year = Integer.parseInt(date.substring(0, 4));
+            int month = Integer.parseInt(date.substring(5, date.length() - 2).replaceAll("^0", ""));
+            return LocalDate.of(year, month, 1); // Retourne le 1er jour du mois spécifié
+        }
+
+        // Gestion du format "yyyy-0-d" ou "yyyy-0-dd"
+        else if (date.matches("^\\d{4}-0-\\d{1,2}$")) {
+            int year = Integer.parseInt(date.substring(0, 4));
+            int day = Integer.parseInt(date.substring(7).replaceAll("^0", ""));
+            return LocalDate.of(year, 1, day); // Janvier comme mois par défaut
+        }
 
         for (DateTimeFormatter formatter : FORMATTERS) {
             try {

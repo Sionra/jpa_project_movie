@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParserNaissance {
     public static void main(String[] args) throws JsonProcessingException {
-        String jsonString1 = "{\"dateNaissance\": \"1982-7-18\", \"lieuNaissance\": \"Jamshedpur, Bihar, India\"}";
+        String jsonString1 = "{\"dateNaissance\": \"1982-12-0\", \"lieuNaissance\": \"Jamshedpur, Bihar, India\"}";
 
         ObjectMapper objectMapper = new ObjectMapper();
 
