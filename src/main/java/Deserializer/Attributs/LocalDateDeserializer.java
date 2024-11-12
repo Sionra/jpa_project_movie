@@ -51,6 +51,11 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
             return LocalDate.of(year, 1, day); // Janvier comme mois par défaut
         }
 
+        // Gestion des dates où l'année = 0, 00, 000 ou 0000
+        else if (date.matches("^0{1,4}-\\d{1,2}-\\d{1,2}$")) {
+            date = date.replaceFirst("^0{1,4}", "1111");
+        }
+
         for (DateTimeFormatter formatter : FORMATTERS) {
             try {
                 return LocalDate.parse(date, formatter);
