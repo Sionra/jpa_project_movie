@@ -42,12 +42,6 @@ public class Film implements Serializable {
             inverseJoinColumns = @JoinColumn(name="ID_REAL",referencedColumnName = "ID"))
     private Set<Realisateur> reals;
 
-    @ManyToMany
-    @JoinTable(name="casting_principal",
-            joinColumns = @JoinColumn(name="ID_FILM"),
-            inverseJoinColumns = @JoinColumn(name="ID_REAL",referencedColumnName = "ID"))
-    private Set<Acteur> acteurs;
-
     @OneToMany(mappedBy = "film",cascade = CascadeType.ALL)
     private Set<Role> roles;
 
@@ -62,7 +56,6 @@ public class Film implements Serializable {
         lieux = new HashSet<Lieu>();
         genres = new HashSet<Genre>();
         reals = new HashSet<Realisateur>();
-        acteurs = new HashSet<Acteur>();
         roles = new HashSet<Role>();
         castingPrincipals = new HashSet<CastingPrincipal>();
     }
@@ -87,7 +80,6 @@ public class Film implements Serializable {
         this.lieux = lieux;
         this.genres = genres;
         this.reals = reals;
-        this.acteurs = acteurs;
         this.roles = roles;
         this.pays = pays;
         this.castingPrincipals = castingPrincipals;
@@ -208,7 +200,6 @@ public class Film implements Serializable {
         sb.append(", lieux=").append(lieux);
         sb.append(", genres=").append(genres);
         sb.append(", reals=").append(reals);
-        sb.append(", acteurs=").append(acteurs);
         sb.append(", roles=").append(roles);
         sb.append(", pays=").append(pays);
         sb.append('}');
@@ -220,12 +211,12 @@ public class Film implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
-        return Objects.equals(id, film.id) && Objects.equals(nom, film.nom) && Objects.equals(url, film.url) && Objects.equals(plot, film.plot) && Objects.equals(langue, film.langue) && Objects.equals(lieux, film.lieux) && Objects.equals(genres, film.genres) && Objects.equals(reals, film.reals) && Objects.equals(acteurs, film.acteurs) && Objects.equals(roles, film.roles) && Objects.equals(pays, film.pays);
+        return Objects.equals(id, film.id) && Objects.equals(nom, film.nom) && Objects.equals(url, film.url) && Objects.equals(plot, film.plot) && Objects.equals(langue, film.langue) && Objects.equals(lieux, film.lieux) && Objects.equals(genres, film.genres) && Objects.equals(reals, film.reals) && Objects.equals(roles, film.roles) && Objects.equals(pays, film.pays);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, url, plot, langue, lieux, genres, reals, acteurs, roles, pays);
+        return Objects.hash(id, nom, url, plot, langue, lieux, genres, reals, roles, pays);
     }
 }
 

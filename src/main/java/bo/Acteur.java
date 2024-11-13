@@ -22,15 +22,12 @@ public class Acteur implements Serializable {
     @ManyToOne
     @JoinColumn(name="NAISSANCE_ID")
     private Naissance naissance;
-    @ManyToMany(mappedBy = "acteurs",cascade = CascadeType.ALL)
-    private Set<Film> films;
     @OneToMany(mappedBy = "acteur",cascade = CascadeType.ALL)
     private Set<Role> roles;
     @OneToMany(mappedBy = "acteur")
     private Set<CastingPrincipal> castingPrincipals;
 
     {
-        films = new HashSet<Film>();
         roles = new HashSet<Role>();
         castingPrincipals = new HashSet<CastingPrincipal>();
     }
@@ -97,34 +94,17 @@ public class Acteur implements Serializable {
         this.height = height;
     }
 
-    /**
-     * Getter for films
-     * return films
-     */
-    public Set<Film> getFilms() {
-        return films;
-    }
-
-    /**
-     * Setter for films
-     *
-     * @param films to set
-     */
-    public void setFilms(Set<Film> films) {
-        this.films = films;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Acteur acteur = (Acteur) o;
-        return Double.compare(height, acteur.height) == 0 && Objects.equals(id, acteur.id) && Objects.equals(identite, acteur.identite) && Objects.equals(url, acteur.url) && Objects.equals(naissance, acteur.naissance) && Objects.equals(films, acteur.films) && Objects.equals(roles, acteur.roles);
+        return Double.compare(height, acteur.height) == 0 && Objects.equals(id, acteur.id) && Objects.equals(identite, acteur.identite) && Objects.equals(url, acteur.url) && Objects.equals(naissance, acteur.naissance) && Objects.equals(roles, acteur.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, identite, url, height, naissance, films, roles);
+        return Objects.hash(id, identite, url, height, naissance, roles);
     }
 
     @Override
@@ -135,7 +115,6 @@ public class Acteur implements Serializable {
         sb.append(", url='").append(url).append('\'');
         sb.append(", height=").append(height);
         sb.append(", naissance=").append(naissance);
-        sb.append(", films=").append(films);
         sb.append(", roles=").append(roles);
         sb.append('}');
         return sb.toString();
