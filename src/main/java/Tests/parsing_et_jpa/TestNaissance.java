@@ -1,3 +1,5 @@
+// EN PAUSE TANT QUE LIEU NAISSANCE EST PAS GERE
+
 package Tests.parsing_et_jpa;
 
 import Entities.GenreE;

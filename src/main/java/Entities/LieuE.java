@@ -1,4 +1,4 @@
-package bo;
+package Entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -9,12 +9,13 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="lieu")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name = "lieu_seq", sequenceName = "lieu_sequence", allocationSize = 1)
 public class LieuE implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private int id;
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lieu_seq")
+    private Long id;
 
     // A AJOUTER DANS TO OVERRIDE METHODS
     @Column(name="QUARTIER")
@@ -27,13 +28,13 @@ public class LieuE implements Serializable {
     @JsonProperty("etatDept")
     private String etat;
 
-    @ManyToOne
-    @JoinColumn(name="PAYS_ID")
-    private Pays pays;
+    @Column(name="PAYS")
+    private String pays;
 
     public LieuE(){}
 
-    public LieuE(String ville, String etat, Pays pays) {
+    public LieuE(String quartier, String ville, String etat, String pays) {
+        this.quartier = quartier;
         this.ville = ville;
         this.etat = etat;
         this.pays = pays;
@@ -43,7 +44,7 @@ public class LieuE implements Serializable {
      * Getter for id
      * return id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -52,7 +53,7 @@ public class LieuE implements Serializable {
      *
      * @param id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -94,7 +95,7 @@ public class LieuE implements Serializable {
      * Getter for pays
      * return pays
      */
-    public Pays getPays() {
+    public String getPays() {
         return pays;
     }
 
@@ -103,7 +104,7 @@ public class LieuE implements Serializable {
      *
      * @param pays to set
      */
-    public void setPays(Pays pays) {
+    public void setPays(String pays) {
         this.pays = pays;
     }
 
