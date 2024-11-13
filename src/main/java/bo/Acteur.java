@@ -26,10 +26,13 @@ public class Acteur implements Serializable {
     private Set<Film> films;
     @OneToMany(mappedBy = "acteur",cascade = CascadeType.ALL)
     private Set<Role> roles;
+    @OneToMany(mappedBy = "acteur")
+    private Set<CastingPrincipal> castingPrincipals;
 
     {
         films = new HashSet<Film>();
         roles = new HashSet<Role>();
+        castingPrincipals = new HashSet<CastingPrincipal>();
     }
 
 

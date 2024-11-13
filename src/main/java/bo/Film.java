@@ -55,12 +55,16 @@ public class Film implements Serializable {
     @JoinColumn(name="PAYS_ID")
     private Pays pays;
 
+    @OneToMany(mappedBy = "film")
+    private Set<CastingPrincipal> castingPrincipals;
+
     {
         lieux = new HashSet<Lieu>();
         genres = new HashSet<Genre>();
         reals = new HashSet<Realisateur>();
         acteurs = new HashSet<Acteur>();
         roles = new HashSet<Role>();
+        castingPrincipals = new HashSet<CastingPrincipal>();
     }
 
     public Film (){}
@@ -74,18 +78,19 @@ public class Film implements Serializable {
         this.anneSortie = anneSortie;
     }
 
-    public Film(String id, String nom, String url, String plot, String langue, Set<Lieu> lieux, Set<Genre> genres, Set<Realisateur> reals, Set<Acteur> acteurs, Set<Role> roles, Pays pays) {
-        this.id = id;
+    public Film(String nom, String url, String plot, String langue, String anneSortie, Set<Lieu> lieux, Set<Genre> genres, Set<Realisateur> reals, Set<Acteur> acteurs, Set<Role> roles, Pays pays, Set<CastingPrincipal> castingPrincipals) {
         this.nom = nom;
         this.url = url;
         this.plot = plot;
         this.langue = langue;
+        this.anneSortie = anneSortie;
         this.lieux = lieux;
         this.genres = genres;
         this.reals = reals;
         this.acteurs = acteurs;
         this.roles = roles;
         this.pays = pays;
+        this.castingPrincipals = castingPrincipals;
     }
 
     /**
@@ -189,6 +194,8 @@ public class Film implements Serializable {
     public void setPays(Pays pays) {
         this.pays = pays;
     }
+
+    
 
     @Override
     public String toString() {
