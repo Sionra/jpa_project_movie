@@ -1,5 +1,6 @@
 package Tests.parsing_et_jpa;
 
+import Entities.LieuNaissanceE;
 import Entities.LieuTournageE;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,8 +21,8 @@ public class TestLieuNaissance {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        LieuTournageE lieu1 = objectMapper.readValue(jsonString1, LieuTournageE.class);
-        LieuTournageE lieu2 = objectMapper.readValue(jsonString2, LieuTournageE.class);
+        LieuNaissanceE lieu1 = objectMapper.readValue(jsonString1, LieuNaissanceE.class);
+        LieuNaissanceE lieu2 = objectMapper.readValue(jsonString2, LieuNaissanceE.class);
 
         System.out.println("ID : " + lieu1.getId());
         System.out.println("Nom du pays : " + lieu1.getPays());
