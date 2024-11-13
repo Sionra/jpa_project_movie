@@ -1,7 +1,7 @@
 // PARSED
 // LISTE FILMS A FIX
 
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Classes.RealisateurDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
-import java.util.UUID;
 
 @JsonDeserialize(using = RealisateurDeserializer.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "identite")

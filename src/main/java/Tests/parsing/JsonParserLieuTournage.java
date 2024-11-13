@@ -1,6 +1,6 @@
-package Tests;
+package Tests.parsing;
 
-import Entities.LieuTournage;
+import ParsingClasses.LieuTournage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParserLieuTournage {

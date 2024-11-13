@@ -1,4 +1,4 @@
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Attributs.ListGenresDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

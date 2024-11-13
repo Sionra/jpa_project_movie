@@ -1,6 +1,6 @@
 // NAISSANCE : PARSED
 
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Attributs.LieuNaissanceDeserializer;
 import Deserializer.Attributs.LocalDateDeserializer;
@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Naissance {

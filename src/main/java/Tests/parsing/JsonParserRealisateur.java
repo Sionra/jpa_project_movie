@@ -1,6 +1,6 @@
-package Tests;
+package Tests.parsing;
 
-import Entities.Realisateur;
+import ParsingClasses.Realisateur;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParserRealisateur {

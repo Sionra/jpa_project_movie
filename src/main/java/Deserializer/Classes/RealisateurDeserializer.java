@@ -1,9 +1,9 @@
 package Deserializer.Classes;
-import Entities.Genre;
-import Entities.Realisateur;
 
-public class RealisateurDeserializer extends UniversalDeserializer<Realisateur> {
+import Entities.RealisateurE;
+
+public class RealisateurDeserializer extends UniversalDeserializer<RealisateurE> {
     public RealisateurDeserializer() {
-        super(Realisateur.class);
+        super(RealisateurE.class);
     }
 }

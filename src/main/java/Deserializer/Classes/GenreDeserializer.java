@@ -1,5 +1,5 @@
 package Deserializer.Classes;
-import Entities.Genre;
+import ParsingClasses.Genre;
 
 public class GenreDeserializer extends UniversalDeserializer<Genre> {
     public GenreDeserializer() {

@@ -1,8 +1,8 @@
 // TEST AUSSI LIEU NAISSANCE
 
-package Tests;
+package Tests.parsing;
 
-import Entities.Naissance;
+import ParsingClasses.Naissance;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

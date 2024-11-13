@@ -1,6 +1,6 @@
 // GENRE : PARSED (SAUF FILMS)
 
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Classes.GenreDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

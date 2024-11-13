@@ -1,7 +1,7 @@
 // PARSED
 // LIST NAISSANCES A FIX
 
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Attributs.LieuNaissanceDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

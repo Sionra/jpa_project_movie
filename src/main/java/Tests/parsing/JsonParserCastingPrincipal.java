@@ -1,11 +1,8 @@
-package Tests;
+package Tests.parsing;
 
-import Deserializer.Classes.ActeurDeserializer;
-import Entities.Acteur;
-import Entities.CastingPrincipal;
-import com.fasterxml.jackson.databind.DeserializationFeature;
+import ParsingClasses.Acteur;
+import ParsingClasses.CastingPrincipal;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.util.List;
 

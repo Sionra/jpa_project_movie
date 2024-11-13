@@ -1,6 +1,6 @@
 // ACTEUR : PARSED (SAUF FILMS)
 
-package Entities;
+package ParsingClasses;
 
 import Deserializer.Classes.ActeurDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

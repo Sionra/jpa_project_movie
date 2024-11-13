@@ -1,15 +1,13 @@
 // PARSED
 // LISTE ACTEURS A FIX
 
-package Entities;
+package ParsingClasses;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
-import java.util.UUID;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class CastingPrincipal {

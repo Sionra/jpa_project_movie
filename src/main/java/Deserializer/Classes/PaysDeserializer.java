@@ -1,5 +1,5 @@
 package Deserializer.Classes;
-import Entities.Pays;
+import ParsingClasses.Pays;
 
 public class PaysDeserializer extends UniversalDeserializer<Pays> {
     public PaysDeserializer() {

@@ -1,12 +1,10 @@
 // PAYS : PARSED
 // LISTES A FIX
 
-package Entities;
+package ParsingClasses;
 
-import Deserializer.Classes.GenreDeserializer;
 import Deserializer.Classes.PaysDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
